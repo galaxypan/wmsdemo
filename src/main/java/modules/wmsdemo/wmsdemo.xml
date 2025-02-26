@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="http://www.skyve.org/xml/module" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="wmsdemo" prototype="true" name="wmsdemo" xsi:schemaLocation="http://www.skyve.org/xml/module ../../schemas/module.xsd">
+    <homeRef>list</homeRef>
+    <homeDocument>Warehouse</homeDocument>
+    <documents>
+        <document ref="Warehouse"/>
+        <document ref="Zone"/>
+    </documents>
+    <roles>
+        <role name="Viewer">
+            <description><![CDATA[Enough privileges to view wmsdemo documents.]]></description>
+            <privileges>
+                <document name="Warehouse" permission="_R__C"/>
+                <document name="Zone" permission="_R__C"/>
+            </privileges>
+            <accesses/>
+        </role>
+        <role name="Maintainer">
+            <description><![CDATA[Enough privileges to create and edit wmsdemo documents.]]></description>
+            <privileges>
+                <document name="Warehouse" permission="CRUDC"/>
+                <document name="Zone" permission="CRUDC"/>
+            </privileges>
+            <accesses/>
+        </role>
+    </roles>
+    <menu>
+        <list document="Warehouse" name="Warehouses">
+            <role name="Maintainer"/>
+            <role name="Viewer"/>
+        </list>
+        <list document="Zone" name="Zones">
+            <role name="Maintainer"/>
+            <role name="Viewer"/>
+        </list>
+    </menu>
+</module>
